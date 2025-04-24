@@ -10,9 +10,7 @@
 
 A modern, responsive Google News search application that allows users to search for news articles with advanced filtering options.
 
-<div align="center">
-  <img src="https://via.placeholder.com/800x400?text=Google+News+Search+App" alt="Google News Search App Screenshot" width="80%">
-</div>
+
 
 ## Features
 
@@ -101,12 +99,6 @@ You can customize the colors by modifying the CSS variables in the `styles.css` 
 
 - Adjust the number of articles per page by modifying the `resultsPerPage` value in `config.js`
 - Change the grid layout by modifying the media queries in the CSS file
-
-## Demo
-
-<div align="center">
-  <img src="https://via.placeholder.com/300x600?text=Mobile+View" alt="Mobile View" width="30%">
-</div>
 
 ## Browser Support
 
