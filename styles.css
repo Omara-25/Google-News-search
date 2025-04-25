@@ -190,6 +190,20 @@ button:hover {
     display: flex;
     justify-content: flex-end;
     margin-top: 16px;
+    gap: 10px;
+}
+
+.download-button {
+    background-color: #8A4FFF;
+}
+
+.download-button:hover {
+    background-color: #7038E0;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .results-container {
@@ -352,4 +366,4 @@ button:hover {
 
 .hidden {
     display: none;
-} 
+}

@@ -15,25 +15,25 @@
                     <label for="query">Search Query</label>
                     <input type="text" id="query" placeholder="Enter keywords or phrases" required>
                 </div>
-                
+
                 <div class="form-group full-width">
                     <div class="advanced-options-header" id="advanced-toggle">
                         <h3>Advanced Options</h3>
                         <span class="advanced-options-toggle">Show more options ▼</span>
                     </div>
-                    
+
                     <div class="advanced-options hidden" id="advanced-options">
                         <div class="advanced-options-content">
                             <div class="form-group">
                                 <label for="source">News Source (domain)</label>
                                 <input type="text" id="source" placeholder="e.g., cnn.com, bbc.co.uk">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="from-date">From Date (Optional)</label>
                                 <input type="date" id="from-date">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="to-date">To Date (Optional)</label>
                                 <input type="date" id="to-date">
@@ -41,16 +41,17 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="search-button-container">
                     <button type="submit">Search News</button>
+                    <button type="button" id="download-csv" class="download-button" disabled>Download CSV</button>
                 </div>
             </form>
-            
-            <button id="toggle-tips" class="search-tips-toggle">
+
+            <button type="button" id="toggle-tips" class="search-tips-toggle">
                 Show search tips ▼
             </button>
-            
+
             <div id="search-tips" class="search-tips hidden">
                 <h3>Search Tips</h3>
                 <p><strong>Keywords:</strong> Enter single or multiple keywords (e.g., "technology")</p>
@@ -68,13 +69,13 @@
                 <span>Search Results</span>
                 <span id="results-count" class="results-count"></span>
             </div>
-            
+
             <div id="loading" class="loading hidden">
                 <div class="loading-spinner"></div>
             </div>
-            
+
             <div id="news-grid" class="news-grid"></div>
-            
+
             <div id="pagination" class="pagination"></div>
         </div>
     </div>
@@ -83,4 +84,4 @@
     <script src="config.js"></script>
     <script src="app.js"></script>
 </body>
-</html> 
+</html>
