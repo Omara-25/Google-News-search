@@ -81,7 +81,18 @@
     </div>
 
     <!-- Configuration script must be loaded before app.js -->
-    <script src="config.js"></script>
+    <script>
+        // Create a fallback config in case config.js fails to load
+        window.config = {
+            apiKeys: [
+                '4f87a77f12msh615c9318ae3c588p182355jsne45ac9881da5', // Fallback primary key
+                '4f87a77f12msh615c9318ae3c588p182355jsne45ac9881da5'  // Fallback backup key
+            ],
+            useAlternativeEndpoints: true,
+            resultsPerPage: 9
+        };
+    </script>
+    <script src="config.js" onerror="console.warn('Config file not loaded, using fallback')"></script>
     <script src="app.js"></script>
 </body>
 </html>

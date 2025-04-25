@@ -1,5 +1,18 @@
 // API configuration - Read from config.js
 // In a production environment, this would use environment variables
+// Check if config exists, if not create a default config object
+if (typeof config === 'undefined') {
+    console.warn('Config not found, using default configuration');
+    window.config = {
+        apiKeys: [
+            '4f87a77f12msh615c9318ae3c588p182355jsne45ac9881da5', // Fallback primary key
+            '4f87a77f12msh615c9318ae3c588p182355jsne45ac9881da5'  // Fallback backup key
+        ],
+        useAlternativeEndpoints: true,
+        resultsPerPage: 9
+    };
+}
+
 const apiKeys = config.apiKeys || [
     '4f87a77f12msh615c9318ae3c588p182355jsne45ac9881da5', // Fallback primary key
     '4f87a77f12msh615c9318ae3c588p182355jsne45ac9881da5'  // Fallback backup key
@@ -636,33 +649,41 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Convert articles to CSV
-        const csvContent = convertToCSV(allArticles);
+        try {
+            // Convert articles to CSV
+            const csvContent = convertToCSV(allArticles);
 
-        // Create a Blob with the CSV content
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            // Create a Blob with the CSV content
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
 
-        // Create a temporary URL for the Blob
-        const url = URL.createObjectURL(blob);
+            // Create a temporary URL for the Blob
+            const url = URL.createObjectURL(blob);
 
-        // Create a temporary link element to trigger the download
-        const link = document.createElement('a');
-        link.href = url;
+            // Create a temporary link element to trigger the download
+            const link = document.createElement('a');
+            link.href = url;
 
-        // Set the filename with current date
-        const date = new Date().toISOString().slice(0, 10);
-        const query = queryInput.value.trim().replace(/[^a-z0-9]/gi, '_').toLowerCase();
-        link.download = `news_data_${query}_${date}.csv`;
+            // Set the filename with current date
+            const date = new Date().toISOString().slice(0, 10);
+            const query = queryInput.value.trim().replace(/[^a-z0-9]/gi, '_').toLowerCase() || 'news_search';
+            link.download = `news_data_${query}_${date}.csv`;
 
-        // Append the link to the body, click it, and remove it
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+            // Append the link to the body, click it, and remove it
+            document.body.appendChild(link);
+            link.click();
 
-        // Clean up the URL object
-        URL.revokeObjectURL(url);
+            // Small delay before cleanup to ensure download starts
+            setTimeout(() => {
+                document.body.removeChild(link);
+                // Clean up the URL object
+                URL.revokeObjectURL(url);
+            }, 100);
 
-        showMessage('CSV file downloaded successfully', false);
+            showMessage('CSV file downloaded successfully', false);
+        } catch (error) {
+            console.error('Download error:', error);
+            showMessage('Error creating download: ' + error.message, true);
+        }
     }
 
     // Function to update the download button state

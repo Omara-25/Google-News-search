@@ -10,8 +10,6 @@
 
 A modern, responsive Google News search application that allows users to search for news articles with advanced filtering options.
 
-
-
 ## Features
 
 - **Search Capabilities**: Search for news articles with keywords, phrases, and boolean operators
