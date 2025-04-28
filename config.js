@@ -5,7 +5,7 @@
 const config = {
     // API Keys
     apiKeys: [
-        '4f87a77f12msh615c9318ae3c588p182355jsne45ac9881da5', // Primary key
+        '9e189ebd0bmsh5b2f5ae32f3db59p150ff3jsn325131d694bf', // Primary key
         '4f87a77f12msh615c9318ae3c588p182355jsne45ac9881da5'  // Backup key
     ],
     
