@@ -5,7 +5,7 @@ if (typeof config === 'undefined') {
     console.warn('Config not found, using default configuration');
     window.config = {
         apiKeys: [
-            '4f87a77f12msh615c9318ae3c588p182355jsne45ac9881da5', // Fallback primary key
+            '9e189ebd0bmsh5b2f5ae32f3db59p150ff3jsn325131d694bf', // Fallback primary key
             '4f87a77f12msh615c9318ae3c588p182355jsne45ac9881da5'  // Fallback backup key
         ],
         useAlternativeEndpoints: true,
